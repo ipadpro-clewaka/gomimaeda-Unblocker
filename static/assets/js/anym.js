@@ -22,7 +22,7 @@
 })();
 
 // Clickoff Check
-var defaultTitle = 'Doge | V4';
+var defaultTitle = 'Net_Ninja';
 var defaultIcon = 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'; // アイコンのURLを変更
 var storedTitle = localStorage.getItem('tabTitle');
 var storedIcon = localStorage.getItem('tabIcon');
