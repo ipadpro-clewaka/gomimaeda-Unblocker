@@ -1,118 +1,149 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Particles with Shurikens</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-    </style>
-</head>
-<body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var particlesDiv = document.createElement('div');
-            particlesDiv.id = 'particles-js';
-            document.body.insertBefore(particlesDiv, document.body.firstChild);
+document.addEventListener('DOMContentLoaded', function() {
+    var particlesDiv = document.createElement('div');
+    particlesDiv.id = 'particles-js';
+    document.body.insertBefore(particlesDiv, document.body.firstChild);
 
-            // Set the background image
-            document.body.style.backgroundImage = "url('https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn')";
-            document.body.style.backgroundSize = 'cover';
+    // Set the background image
+    document.body.style.backgroundImage = "url('https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn')";
+    document.body.style.backgroundSize = 'cover';
 
-            var selectedTheme = localStorage.getItem('selectedOption');
-            var particles = localStorage.getItem('particles');
+    var selectedTheme = localStorage.getItem('selectedOption');
+    var particles = localStorage.getItem('particles');
+    
+    function getRandomShurikenShape() {
+        const shapes = [
+            { type: 'polygon', sides: 3 },  // 3-blade shuriken
+            { type: 'polygon', sides: 4 },  // 4-blade shuriken
+            { type: 'polygon', sides: 5 },  // 5-blade shuriken
+            { type: 'polygon', sides: 6 }   // 6-blade shuriken
+        ];
+        return shapes[Math.floor(Math.random() * shapes.length)];
+    }
 
-            var canvas = document.getElementById('particles-js');
-            var ctx = canvas.getContext('2d');
+    var shape = getRandomShurikenShape();
 
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            var shurikens = [];
-
-            function Shuriken(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 20 + 15; // Random size
-                this.angle = Math.random() * Math.PI * 2; // Random angle
-                this.speed = Math.random() * 2 + 1; // Random speed
-                this.shape = this.generateShape();
-
-                this.update = function() {
-                    this.x += Math.cos(this.angle) * this.speed;
-                    this.y += Math.sin(this.angle) * this.speed;
-
-                    // If shuriken goes out of bounds, reset its position
-                    if (this.x > canvas.width) this.x = 0;
-                    else if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    else if (this.y < 0) this.y = canvas.height;
+    // Select particles configuration based on theme or default background
+    var particlesConfig = {
+        "particles": {
+            "number": {
+                "value": 160,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
                 }
-
-                this.draw = function() {
-                    ctx.save();
-                    ctx.translate(this.x, this.y);
-                    ctx.rotate(this.angle);
-                    ctx.fillStyle = 'grey'; // Shuriken fill color
-                    ctx.beginPath();
-                    ctx.moveTo(-this.size, -this.size / 2);
-                    ctx.lineTo(0, -this.size);
-                    ctx.lineTo(this.size, -this.size / 2);
-                    ctx.lineTo(this.size / 2, 0);
-                    ctx.lineTo(this.size, this.size / 2);
-                    ctx.lineTo(0, this.size);
-                    ctx.lineTo(-this.size, this.size / 2);
-                    ctx.lineTo(-this.size / 2, 0);
-                    ctx.closePath();
-                    ctx.fill();
-                    ctx.restore();
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": shape.type,
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": shape.sides
+                },
+                "image": {
+                    "src": "img/github.svg",  // image can be used if needed, otherwise you can remove this
+                    "width": 100,
+                    "height": 100
                 }
-            }
-
-            // Generate random shurikens
-            function createShurikens(num) {
-                for (let i = 0; i < num; i++) {
-                    let x = Math.random() * canvas.width;
-                    let y = Math.random() * canvas.height;
-                    shurikens.push(new Shuriken(x, y));
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
                 }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                shurikens.forEach(shuriken => {
-                    shuriken.update();
-                    shuriken.draw();
-                });
-                requestAnimationFrame(animate);
-            }
-
-            // Create shurikens on initialization
-            createShurikens(100); // Number of shurikens
-            animate();
-
-            // Check if particles are enabled
-            if (particles === 'disabled' || particles === null || particles === '') {
-                console.log('Particles are disabled.');
-            } else {
-                // Fallback if no theme is selected
-                if (selectedTheme === null) {
-                    console.log('No theme selected, using default.');
+            },
+            "size": {
+                "value": 10,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 20,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": false,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "top",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
                 }
             }
-        });
-    </script>
-</body>
-</html>
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": false,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    };
+
+    // Check if particles are enabled
+    if (particles === 'disabled' || particles === null || particles === '') {
+        console.log('Particles are disabled.')
+    } else {
+        particlesJS("particles-js", particlesConfig);
+    }
+
+    // Fallback if no theme is selected
+    if (selectedTheme === null) {
+        // Deep sea theme as default
+        particlesJS("particles-js", particlesConfig);
+    }
+});
