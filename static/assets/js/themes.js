@@ -12,6 +12,7 @@
             background-size: cover;
             height: 100vh;
             width: 100vw;
+            position: relative; /* これを追加 */
         }
         #particles-js {
             position: absolute;
