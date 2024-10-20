@@ -12,10 +12,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function getRandomShurikenShape() {
         const shapes = [
-            { type: 'polygon', sides: 3 },  // 3-blade shuriken
-            { type: 'polygon', sides: 4 },  // 4-blade shuriken
-            { type: 'polygon', sides: 5 },  // 5-blade shuriken
-            { type: 'polygon', sides: 6 }   // 6-blade shuriken
+            { 
+                type: 'image', 
+                src: 'https://tse4.mm.bing.net/th?id=OIG3.D8qtRpH7_sQL3Ss4oKX3&pid=ImgGn',  // 1つ目の手裏剣画像
+                width: 100,
+                height: 100
+            },
+            { 
+                type: 'image', 
+                src: 'https://tse4.mm.bing.net/th?id=OIG4.Czq6NMPd9Aw0yawjzjhE&pid=ImgGn',  // 2つ目の手裏剣画像
+                width: 100,
+                height: 100
+            }
         ];
         return shapes[Math.floor(Math.random() * shapes.length)];
     }
@@ -41,13 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     "width": 0,
                     "color": "#000000"
                 },
-                "polygon": {
-                    "nb_sides": shape.sides
-                },
                 "image": {
-                    "src": "img/github.svg",  // image can be used if needed, otherwise you can remove this
-                    "width": 100,
-                    "height": 100
+                    "src": shape.src,
+                    "width": shape.width,
+                    "height": shape.height
                 }
             },
             "opacity": {
