@@ -1,6 +1,6 @@
 (function() {
   var defaultTitle = 'Doge | V4';
-  var defaultIcon = '/assets/img/doge.jpg';
+  var defaultIcon = 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'; // アイコンのURLを変更
 
   var storedTitle = localStorage.getItem('tabTitle');
   var storedIcon = localStorage.getItem('tabIcon');
@@ -23,7 +23,7 @@
 
 // Clickoff Check
 var defaultTitle = 'Doge | V4';
-var defaultIcon = '/assets/img/doge.jpg';
+var defaultIcon = 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'; // アイコンのURLを変更
 var storedTitle = localStorage.getItem('tabTitle');
 var storedIcon = localStorage.getItem('tabIcon');
 var icon = document.querySelector('link[rel="icon"]');
@@ -31,8 +31,8 @@ var newTitle = storedTitle || defaultTitle;
 var newIcon = storedIcon || defaultIcon;
 var clickoff = localStorage.getItem('clickoffCloak');
 
-if (storedIcon === '/assets/img/doge.jpg' || storedIcon === null || storedIcon === '') {
-    localStorage.setItem('tabIcon', '/assets/img/doge.jpg');
+if (storedIcon === null || storedIcon === '') {
+    localStorage.setItem('tabIcon', defaultIcon); // デフォルトのアイコンを保存
 }
 
 var storedIcon = localStorage.getItem('tabIcon');
@@ -41,7 +41,7 @@ if (clickoff === 'enabled') {
   document.addEventListener("visibilitychange", function() {
       if (document.hidden) {
           document.title = "Google Docs";
-          icon.setAttribute('href', '/assets/img/docs.webp');
+          icon.setAttribute('href', 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'); // Google Docsのアイコンに設定
       } else {
           document.title = newTitle;
           icon.setAttribute('href', storedIcon);
