@@ -1,5 +1,5 @@
 (function() {
-  var defaultTitle = 'Ninja-net';
+  var defaultTitle = 'Net_Ninja';
   var defaultIcon = 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'; // アイコンのURLを変更
 
   var storedTitle = localStorage.getItem('tabTitle');
