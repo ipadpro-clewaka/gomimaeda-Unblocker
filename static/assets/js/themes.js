@@ -1,268 +1,139 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>忍者のテーマ - パーティクル背景</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            background-image: url('https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+var bgUrl = localStorage.getItem('bgUrl');
+var selectedTheme = localStorage.getItem('selectedOption');
+
+if (selectedTheme === 'deepsea' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    containers.forEach(function(container) {
+        container.style.backgroundColor = 'rgba(19, 34, 48, 0.8)'; // Light Blue
+    });
+
+    document.body.style.background = "linear-gradient(to bottom right, rgb(16, 52, 82), rgb(9, 34, 55), black)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'equinox' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    var nav = document.querySelectorAll('nav');
+    nav.forEach(function(navElement) {
+        navElement.style.transition = '1s';
+        navElement.style.backgroundColor = 'rgba(20, 20, 20, 0.871)';
+        navElement.style.border = '1px solid rgba(39, 39, 39, 0.575)';
+        navElement.style.boxShadow = '0 0 8px rgba(255, 255, 255, 0.267)';
+        navElement.style.opacity = '100%';
+    });
+
+    var inputs = document.querySelectorAll('input');
+    inputs.forEach(function(inputElement) {
+        inputElement.style.transition = '.2s';
+        inputElement.style.backgroundColor = 'rgba(15, 15, 15, 0.89)';
+        inputElement.style.boxShadow = '0 0 1px rgba(255, 255, 255, 0.267)';
+        inputElement.style.opacity = '100%';
+    });
+
+    document.body.style.backgroundImage = "url('/assets/img/equinox.webp')";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'swamp' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    containers.forEach(function(container) {
+        container.style.backgroundColor = 'rgba(22, 46, 23, 0.859)'; // Dark Green
+    });
+
+    document.body.style.background = "linear-gradient(to bottom, rgb(33, 116, 47), rgb(0, 0, 0)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'ocean' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    containers.forEach(function(container) {
+        container.style.backgroundColor = 'rgba(84, 137, 161, 0.637)'; // Dark Baby Blue
+    });
+
+    document.body.style.background = "linear-gradient(to bottom, rgb(70, 173, 214), rgb(99, 84, 36))";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'starry' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    containers.forEach(function(container) {
+        container.style.background = 'linear-gradient(to right, rgba(39, 81, 109, 0.521), rrgba(80, 51, 107, 0.541)'; // Light Purple
+    });
+
+    document.body.style.background = "linear-gradient(to right, rgb(14, 132, 211), rgb(113, 11, 209)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'magma' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    document.body.style.background = "linear-gradient(to right, rgb(0, 0, 0), rgb(223, 59, 10)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+} else if (selectedTheme === 'sunset' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    document.body.style.background = "linear-gradient(to bottom, rgb(211, 112, 19), rgb(92, 16, 179))";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+}
+
+/* If no theme is selected */
+if (selectedTheme === null && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
+
+    containers.forEach(function(container) {
+        container.style.backgroundColor = 'rgba(19, 34, 48, 0.8)'; // Light Blue
+    });
+
+    document.body.style.background = "linear-gradient(to bottom right, rgb(16, 52, 82), rgb(9, 34, 55), black)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+
+    // Deep Sea
+}
+
+/* Ripple Effect for buttons */
+[].map.call(document.querySelectorAll('[anim="ripple"]'), el => {
+    el.addEventListener('mousedown', e => {
+        e = e.touches ? e.touches[0] : e;
+        const r = el.getBoundingClientRect(),
+            d = Math.sqrt(Math.pow(r.width, 2) + Math.pow(r.height, 2)) * 2;
+        el.style.cssText = `--s: 0; --o: 1;`;
+        el.offsetTop;
+        el.style.cssText = `--t: 1; --o: 0; --d: ${d}; --x:${e.clientX - r.left}; --y:${e.clientY - r.top};`
+        if (el.classList.contains('90px')) {
+            el.style.width = '90px';
         }
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; /* パーティクルが背景の上に表示されるようにする */
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-</head>
-<body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var particlesDiv = document.createElement('div');
-            particlesDiv.id = 'particles-js';
-            document.body.insertBefore(particlesDiv, document.body.firstChild);
+    })
+})
 
-            var selectedTheme = localStorage.getItem('selectedOption');
-
-            // 忍者のテーマの設定
-            if (selectedTheme === 'ninja') {
-                particlesJS("particles-js", {
-                    "particles": {
-                        "number": {
-                            "value": 100,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#ffcc00" // 忍者に合った色
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 6
-                            },
-                            "image": {
-                                "src": "https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn", // 画像URLをここに変更
-                                "width": 100,
-                                "height": 100
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.6,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 1,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            "value": 5,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 20,
-                                "size_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": true,
-                            "distance": 150,
-                            "color": "#ffcc00",
-                            "opacity": 0.4,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 2,
-                            "direction": "none",
-                            "random": true,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "grab"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 400,
-                                "line_linked": {
-                                    "opacity": 1
-                                }
-                            },
-                            "bubble": {
-                                "distance": 400,
-                                "size": 40,
-                                "duration": 2,
-                                "opacity": 8,
-                                "speed": 3
-                            },
-                            "repulse": {
-                                "distance": 200,
-                                "duration": 0.4
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            },
-                            "remove": {
-                                "particles_nb": 2
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            }
-
-            // デフォルトがない場合
-            if (selectedTheme === null) {
-                particlesJS("particles-js", {
-                    "particles": {
-                        "number": {
-                            "value": 160,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#476498"
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            },
-                            "image": {
-                                "src": "https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn", // 画像URLをここに変更
-                                "width": 100,
-                                "height": 100
-                            }
-                        },
-                        "opacity": {
-                            "value": 1,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 1,
-                                "opacity_min": 0,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            "value": 3,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 4,
-                                "size_min": 0.3,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": false,
-                            "distance": 150,
-                            "color": "#ffffff",
-                            "opacity": 0.4,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 1.603412060865523,
-                            "direction": "top",
-                            "random": false,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 600
-                            }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": false,
-                                "mode": "bubble"
-                            },
-                            "onclick": {
-                                "enable": false,
-                                "mode": "repulse"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 400,
-                                "line_linked": {
-                                    "opacity": 1
-                                }
-                            },
-                            "bubble": {
-                                "distance": 250,
-                                "size": 0,
-                                "duration": 2,
-                                "opacity": 0,
-                                "speed": 3
-                            },
-                            "repulse": {
-                                "distance": 400,
-                                "duration": 0.4
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            },
-                            "remove": {
-                                "particles_nb": 2
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+/* Background check */
+document.addEventListener('DOMContentLoaded', function() {
+    if (bgUrl === 'none' || bgUrl === null || bgUrl === '') {
+        console.log('No custom background set.');
+    } else {
+        document.body.style.backgroundImage = `url(${bgUrl})`;
+        document.getElementById('particles-js').remove();
+    }
+});
