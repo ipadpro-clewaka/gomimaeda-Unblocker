@@ -1,5 +1,5 @@
 (function() {
-  var defaultTitle = 'Doge | V4';
+  var defaultTitle = 'Ninja-net';
   var defaultIcon = 'https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn'; // アイコンのURLを変更
 
   var storedTitle = localStorage.getItem('tabTitle');
