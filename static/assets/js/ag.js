@@ -17,7 +17,7 @@
 }*/
 
 function openAg(url, ag) {
-  localStorage.setItem("currentAg", ag)
+  localStorage.setItem("currentAg", ag);
   
   agU = Ultraviolet.codec.xor.encode(url);
   localStorage.setItem('agUrl', agU);
@@ -27,6 +27,12 @@ function openAg(url, ag) {
 window.navigator.serviceWorker.register("/sw.js", {
   scope: __uv$config.prefix,
 });
+
+// CSS to set the background image
+document.body.style.backgroundImage = "url('https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn')";
+document.body.style.backgroundSize = "cover"; // Ensures the background covers the entire screen
+document.body.style.backgroundPosition = "center"; // Centers the background image
+document.body.style.backgroundRepeat = "no-repeat"; // Prevents background image from repeating
 
 /*apps*/
 function gpt() {
@@ -200,7 +206,8 @@ function p2048() {
 }
 
 function rbx() {
-  alert(`Warning: In order to access the site, you will have to bypass their proxy detection. You can do this by continuously refreshing the page until it loads. (Don't reload too quickly)\n\nThis can take from 1-10 tries to 30-50 tries.`);
+  alert(`Warning: In order to access the site, you will have to bypass their proxy detection. You can do this by continuously refreshing the page until it loads. (Don't reload too quickly)\n
+This can take from 1-10 tries to 30-50 tries.`);
   openAg('https://now.derpman.lol', "Roblox");
 }
 
@@ -217,7 +224,7 @@ function territorial() {
 }
 
 function florr() {
-  openAg('https://florr.io' `Florrio`);
+  openAg('https://florr.io', "Florrio");
 }
 
 function cookieClicker() {
