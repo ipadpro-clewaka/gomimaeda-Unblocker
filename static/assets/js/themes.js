@@ -8,11 +8,9 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-image: url('https://tse2.mm.bing.net/th?id=OIG4.1PyEdpKfqtfUM9Vhmsfx&pid=ImgGn');
-            background-size: cover;
             height: 100vh;
             width: 100vw;
-            position: relative; /* これを追加 */
+            position: relative;
         }
         #particles-js {
             position: absolute;
@@ -20,18 +18,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* パーティクルが背景として表示されるようにする */
+            z-index: 1; /* パーティクルが背景として表示されるようにする */
+        }
+        .background {
+            background-image: url('https://tse2.mm.bing.net/th/id/OIG4.1PyEdpKfqtfUM9Vhmsfx?pid=ImgGn');
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0; /* 背景画像のレイヤー */
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div class="background"></div>
+    <div id="particles-js"></div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var particlesDiv = document.createElement('div');
-            particlesDiv.id = 'particles-js';
-            document.body.insertBefore(particlesDiv, document.body.firstChild);
-
             var selectedTheme = localStorage.getItem('selectedOption');
 
             // 忍者のテーマの設定
@@ -50,38 +57,14 @@
                         },
                         "shape": {
                             "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 6
-                            },
-                            "image": {
-                                "src": "img/github.svg",
-                                "width": 100,
-                                "height": 100
-                            }
                         },
                         "opacity": {
-                            "value": 0.6,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 1,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
+                            "value": 0.3, // 背景が見えるように透明度を調整
+                            "random": true
                         },
                         "size": {
                             "value": 5,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 20,
-                                "size_min": 0.1,
-                                "sync": false
-                            }
+                            "random": true
                         },
                         "line_linked": {
                             "enable": true,
@@ -95,14 +78,8 @@
                             "speed": 2,
                             "direction": "none",
                             "random": true,
-                            "straight": false,
                             "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
+                            "bounce": false
                         }
                     },
                     "interactivity": {
@@ -164,59 +141,24 @@
                         },
                         "shape": {
                             "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            },
-                            "image": {
-                                "src": "img/github.svg",
-                                "width": 100,
-                                "height": 100
-                            }
                         },
                         "opacity": {
-                            "value": 1,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 1,
-                                "opacity_min": 0,
-                                "sync": false
-                            }
+                            "value": 0.5, // 背景が見えるように透明度を調整
+                            "random": true
                         },
                         "size": {
                             "value": 3,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 4,
-                                "size_min": 0.3,
-                                "sync": false
-                            }
+                            "random": true
                         },
                         "line_linked": {
                             "enable": false,
-                            "distance": 150,
-                            "color": "#ffffff",
-                            "opacity": 0.4,
-                            "width": 1
                         },
                         "move": {
                             "enable": true,
-                            "speed": 1.603412060865523,
+                            "speed": 1.6,
                             "direction": "top",
                             "random": false,
-                            "straight": false,
                             "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 600
-                            }
                         }
                     },
                     "interactivity": {
