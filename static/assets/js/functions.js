@@ -26,7 +26,8 @@ if (blankerCheck === 'enabled') {
           const style = iframe.style;
           const link = doc.createElement("link");
           const name = localStorage.getItem("name") || "My Drive - Google Drive";
-          const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
+          // Changed the icon URL here
+          const icon = localStorage.getItem("icon") || "https://tse2.mm.bing.net/th?id=OIG4.3dknLKkrRL5EZre4pkYa&pid=ImgGn";
           doc.title = name;
           link.rel = "icon";
           link.href = icon;
@@ -260,3 +261,4 @@ if (window.location.protocol === "http:") {
 }
 
 console.log("%cJoin our Discord! discord.gg/unblocking", "color: cyan; font-size: 20px");
+
