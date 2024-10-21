@@ -41,7 +41,7 @@ function gpt() {
 
 function nf() {
   alert('This app is still in development.\nCheck discord.gg/unblocking for details.');
-  /*  document.title = 'Doge | V4';
+  /*  document.title = 'Net_Ninja';
   var cloakcheckScript = document.createElement("script");
   cloakcheckScript.src = "/assets/js/cloak.js";
   document.head.appendChild(cloakcheckScript);
@@ -137,7 +137,7 @@ function twitch() {
 }
 
 function yt() {
-  openAg('https://youtube.com', "YouTube");
+  openAg('https://inv.nadeko.net/', "YouTube");
 }
 
 function y8() {
