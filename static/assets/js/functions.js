@@ -72,14 +72,13 @@ function toggleSubmenu(event) {
       submenu.style.top = submenuParent.offsetTop + "px";
       submenu.style.left = (submenuParent.offsetLeft + submenuParent.offsetWidth) + "px";
       submenuParent.classList.add('open');
-      event.stopPropagation(); // Prevent the click event from closing the right-click menu
+      event.stopPropagation();
   }
 
   submenuOpen = !submenuOpen;
 }
 
 function handleSubmenuClick() {
-  // Perform action when submenu option is clicked
   alert("hi");
   hideSubmenu();
 }
@@ -96,7 +95,7 @@ function toggleSubmenu2(event) {
       submenu2.style.top = submenuParent2.offsetTop + "px";
       submenu2.style.left = (submenuParent2.offsetLeft + submenuParent2.offsetWidth) + "px";
       submenuParent2.classList.add('open');
-      event.stopPropagation(); // Prevent the click event from closing the right-click menu
+      event.stopPropagation();
   }
 
   submenu2Open = !submenu2Open;
@@ -147,13 +146,11 @@ function visitLastSite() {
 }
 
 function handleSubmenuClick2() {
-  // useless for testing
   alert("hi2");
   hideSubmenu2();
 }
 
 function doSomething() {
-  // Perform action for context menu option
   console.log("deez nuts");
 }
 
