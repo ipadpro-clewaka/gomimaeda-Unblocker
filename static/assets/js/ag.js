@@ -137,7 +137,7 @@ function twitch() {
 }
 
 function yt() {
-  openAg('https://invidious.private.coffee', "YouTube");
+  openAg('https://youtube.forsaken-borders.net/', "YouTube");
 }
 
 function y8() {
