@@ -137,7 +137,7 @@ function twitch() {
 }
 
 function yt() {
-  openAg('https://inv.nadeko.net/', "YouTube");
+  openAg('http://yewtu.be/', "YouTube");
 }
 
 function y8() {
