@@ -137,7 +137,7 @@ function twitch() {
 }
 
 function yt() {
-  openAg('http://yewtu.be/', "YouTube");
+  openAg('https://invidious.private.coffee', "YouTube");
 }
 
 function y8() {
