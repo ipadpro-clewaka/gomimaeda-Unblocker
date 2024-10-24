@@ -137,7 +137,7 @@ function twitch() {
 }
 
 function yt() {
-  openAg('https://yt-app.kairun.jp/', "YouTube");
+  openAg('https://youtube.forsaken-borders.net/', "YouTube");
 }
 
 function y8() {
